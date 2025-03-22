@@ -11,13 +11,12 @@ import time
 
 # Pin utilizzato per il segnale PWM all'ESC
 ESC_PIN = 28  # Usa GPIO 28 per il segnale dell'ESC
-MIN_PULSE=610
+MIN_PULSE=1000
 MID_PULSE=1500
 FREQ_PULSE= 50    # Frequenza del pwd
 PERIOD_PULSE= (1/FREQ_PULSE)*1e6
 MAX_16BIT_CON= 65535
 
-PULSE= 610
 
 # Inizializza il PWM per l'ESC
 def inizializza_esc():
@@ -59,9 +58,9 @@ def arma_esc(pwm):
 pwm=inizializza_esc()
 
 # Arma l'ESC
-#arma_esc(pwm)
+arma_esc(pwm)
 
-set_speed(pwm, PULSE)
-time.sleep(2)
+set_speed(pwm, 1600)
+time.sleep(10)
 set_speed(pwm, 0)
         
