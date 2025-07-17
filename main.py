@@ -48,6 +48,7 @@ def speed_ramp():
         print(f"PWM: {speed} ({speed/655.35:.1f}%)")
         time.sleep(0.05)
 
+stop()
 forward()
 #pwma.duty_u16(40000)
 #time.sleep(3)
