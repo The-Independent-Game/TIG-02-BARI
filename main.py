@@ -1,7 +1,7 @@
 from machine import Pin, PWM
 import time
 
-STEP = 200
+STEP = 500
 # Configurazione pin
 # Motore A
 ain1 = Pin(26, Pin.OUT)
@@ -31,6 +31,8 @@ def backwards():
     ain2.on()
     
 def stop():
+    ain1.off()
+    ain2.off()
     pwma.duty_u16(0)
 
 def speed_ramp():
@@ -47,9 +49,13 @@ def speed_ramp():
         time.sleep(0.05)
 
 forward()
+#pwma.duty_u16(40000)
+#time.sleep(3)
 speed_ramp()
 stop()
 backwards()
+#pwma.duty_u16(40000)
+#time.sleep(3)
 speed_ramp()
 stop()
 
